@@ -64,10 +64,17 @@ export function Hero() {
 					Budujemy kampanie, które zmieniają biznes.
 				</p>
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up-delay-2">
-					<Button onClick={() => scrollToSection("contact")}>
+					<Button
+						onClick={() => scrollToSection("contact")}
+						className="text-sm w-52"
+					>
 						Rozpocznijmy projekt
 					</Button>
-					<Button variant="ghost" onClick={() => scrollToSection("work")}>
+					<Button
+						variant="ghost"
+						onClick={() => scrollToSection("work")}
+						className="text-sm w-52"
+					>
 						Zobacz portfolio
 					</Button>
 				</div>

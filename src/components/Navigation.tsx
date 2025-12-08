@@ -38,17 +38,17 @@ export function Navigation() {
 			>
 				<div className="section-padding mx-auto max-w-7xl">
 					<div className="flex items-center justify-between h-20">
-						<div className="text-2xl font-display font-semibold flex items-center gap-2">
+						<div className="text-xl font-display font-semibold flex items-center gap-2">
 							NEXUS
 							<RotatingText
 								texts={["Marketing", "Digital", "Strategy"]}
-								mainClassName="px-2 sm:px-2 md:px-3 bg-white text-dark-950 overflow-hidden py-0.5 sm:py-1 md:py-1.5 justify-center rounded-lg font-display font-semibold text-lg sm:text-xl md:text-2xl"
+								mainClassName="px-1 sm:px-1.5 md:px-2 bg-white text-dark-950 overflow-hidden py-0.5 sm:py-0.5 md:py-1 justify-center rounded-md font-display font-semibold text-sm sm:text-base md:text-lg"
 								staggerFrom={"last"}
 								initial={{ y: "100%" }}
 								animate={{ y: 0 }}
 								exit={{ y: "-120%" }}
 								staggerDuration={0.025}
-								splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+								splitLevelClassName="overflow-hidden pb-0.5 sm:pb-0.5 md:pb-0.5"
 								transition={{ type: "spring", damping: 30, stiffness: 400 }}
 								rotationInterval={5000}
 							/>
