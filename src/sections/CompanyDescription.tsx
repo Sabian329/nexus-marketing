@@ -18,7 +18,9 @@ export function CompanyDescription() {
 						</span>
 						<div className="h-px w-12 bg-gradient-to-r from-transparent via-primary-500 to-transparent" />
 					</div>
-					<SectionTitle>Wielkie Projety</SectionTitle>
+					<SectionTitle subtitle="Indywiddualne podejście do każdego klienta">
+						Wielkie Projety
+					</SectionTitle>
 				</div>
 
 				{/* Main Content Grid */}

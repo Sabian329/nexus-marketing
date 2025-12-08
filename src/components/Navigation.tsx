@@ -38,7 +38,7 @@ export function Navigation() {
 			>
 				<div className="section-padding mx-auto max-w-7xl">
 					<div className="flex items-center justify-between h-20">
-						<div className="text-xl font-display font-semibold flex items-center gap-2">
+						<div className="text-2xl font-display font-semibold flex items-center gap-2">
 							NEXUS
 							<RotatingText
 								texts={["Marketing", "Digital", "Strategy"]}

@@ -1,7 +1,7 @@
-import { ProjectCardNew } from "../components/ProjectCardNew";
 import { projects } from "../data/projects";
 import { SectionTitle } from "../components/SectionTitle";
 import Particles from "../components/Particles";
+import TiltedCard from "../components/TiltedCard";
 
 export function WorkSection() {
 	return (
@@ -19,21 +19,46 @@ export function WorkSection() {
 					moveParticlesOnHover={true}
 					alphaParticles={false}
 					disableRotation={false}
+					className=""
 				/>
 			</div>
 			<SectionTitle subtitle="Zrealizowane projekty, które przyniosły wymierne rezultaty">
-				Portfolio
+				Nasze Portfolio
 			</SectionTitle>
 
 			{/* Projects Grid */}
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20">
 				{projects.map((project) => (
-					<ProjectCardNew
+					<TiltedCard
 						key={project.id}
-						title={project.title}
-						description={project.description}
-						results={project.results}
-						image={project.image}
+						imageSrc={project.image}
+						altText={project.title}
+						captionText={project.title}
+						containerHeight="400px"
+						containerWidth="100%"
+						imageHeight="400px"
+						imageWidth="100%"
+						rotateAmplitude={12}
+						scaleOnHover={1.05}
+						showMobileWarning={false}
+						showTooltip={false}
+						displayOverlayContent={true}
+						overlayContent={
+							<div className="p-6 text-white">
+								<div className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary-400">
+									{project.category}
+								</div>
+								<h3 className="text-xl font-display font-bold mb-3">
+									{project.title}
+								</h3>
+								<p className="text-sm text-white/80 mb-4 leading-relaxed">
+									{project.description}
+								</p>
+								<div className="text-sm font-semibold text-primary-400">
+									{project.results}
+								</div>
+							</div>
+						}
 					/>
 				))}
 			</div>

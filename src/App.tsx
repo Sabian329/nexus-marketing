@@ -2,6 +2,7 @@ import { CompanyDescription } from "./sections/CompanyDescription";
 import { ServicesSection } from "./sections/ServicesSection";
 import { WorkSection } from "./sections/WorkSection";
 import { BentoSection } from "./sections/BentoSection";
+import { PackagesSection } from "./sections/PackagesSection";
 import { ContactSection } from "./sections/ContactSection";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
@@ -16,6 +17,7 @@ function App() {
 			<ServicesSection />
 			<WorkSection />
 			<BentoSection />
+			<PackagesSection />
 			<ContactSection />
 			<Footer />
 		</div>

@@ -45,12 +45,11 @@ export function ContactSection() {
 				noise={0.1}
 				transparent
 			/>
-			<div className="relative z-10 max-w-7xl mx-auto w-full">
-				<div className="text-center mb-16 md:mb-10">
-					<SectionTitle>Gotowy na zmianę</SectionTitle>
-					<p className="text-xl md:text-base text-white/90 mb-10 text-balance max-w-3xl mx-auto font-medium">
-						Porozmawiajmy o Twoim projekcie. Odpowiemy w ciągu 24 godzin.
-					</p>
+			<div className="relative z-10 max-w-7xl mx-auto w-full pb-20">
+				<div className="text-center flex flex-col items-center justify-center">
+					<SectionTitle subtitle="Porozmawiajmy o Twoim projekcie. Odpowiemy w ciągu 24 godzin.">
+						Gotowy na zmianę
+					</SectionTitle>
 				</div>
 				<div className="flex justify-center">
 					<div className="bg-black/60 backdrop-blur-xl p-5 rounded-2xl w-[700px] border border-white/30">

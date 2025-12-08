@@ -19,7 +19,7 @@ export function ServicesSection() {
 			className="section-padding py-12 md:py-16 mx-auto max-w-7xl"
 		>
 			<SectionTitle subtitle="Kompleksowe usługi marketingowe dla nowoczesnych marek">
-				Co robimy
+				Co Robimy
 			</SectionTitle>
 			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
 				{displayedServices.map((service, index) => (

@@ -1,5 +1,7 @@
 import { Button } from "./Button";
 import ColorBends from "./ColorBends";
+import GlassSurface from "./GlassSurface";
+import StarBorder from "./StarBorder";
 
 export function Hero() {
 	const scrollToSection = (id: string) => {

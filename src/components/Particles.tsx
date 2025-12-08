@@ -113,6 +113,8 @@ const Particles = ({
 			alpha: true,
 		});
 		const gl = renderer.gl;
+		// Make canvas non-interactive so it doesn't block mouse events
+		gl.canvas.style.pointerEvents = "none";
 		container.appendChild(gl.canvas);
 		gl.clearColor(0, 0, 0, 0);
 
@@ -136,7 +138,8 @@ const Particles = ({
 		};
 
 		if (moveParticlesOnHover) {
-			container.addEventListener("mousemove", handleMouseMove);
+			// Listen on window to capture mouse events even when over other elements
+			window.addEventListener("mousemove", handleMouseMove, { passive: true });
 		}
 
 		const count = particleCount;
@@ -222,7 +225,7 @@ const Particles = ({
 		return () => {
 			window.removeEventListener("resize", resize);
 			if (moveParticlesOnHover) {
-				container.removeEventListener("mousemove", handleMouseMove);
+				window.removeEventListener("mousemove", handleMouseMove);
 			}
 			cancelAnimationFrame(animationFrameId);
 			if (container.contains(gl.canvas)) {

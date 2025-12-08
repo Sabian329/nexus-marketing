@@ -6,7 +6,7 @@ export function BentoSection() {
 		<section className="section-padding py-12 md:py-16 mx-auto max-w-7xl">
 			<div className="max-w-7xl mx-auto">
 				<SectionTitle subtitle="Nasze kluczowe obszary działania">
-					Co oferujemy
+					Co Oferujemy
 				</SectionTitle>
 				<div className="flex justify-center">
 					<MagicBento
