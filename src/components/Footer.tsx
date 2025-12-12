@@ -85,16 +85,16 @@ export function Footer() {
 					</h3>
 					<div className="flex flex-col gap-3">
 						<a
-							href="mailto:hello@AdFuse.marketing"
+							href="mailto:adfusegroup@gmail.com"
 							className="text-sm text-white/60 hover:text-primary-400 transition-colors"
 						>
-							hello@AdFuse.marketing
+							adfusegroup@gmail.com
 						</a>
 						<a
-							href="tel:+48123456789"
+							href="tel:+48662921107"
 							className="text-sm text-white/60 hover:text-primary-400 transition-colors"
 						>
-							+48 123 456 789
+							+48 662 921 107
 						</a>
 					</div>
 				</div>
