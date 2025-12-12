@@ -1,3 +1,5 @@
+import { Link, useLocation } from "react-router-dom";
+
 const footerLinks = [
 	{ id: "services", label: "Usługi" },
 	{ id: "work", label: "Portfolio" },
@@ -15,8 +17,15 @@ const footerServices = [
 ];
 
 export function Footer() {
+	const location = useLocation();
+
 	const scrollToSection = (id: string) => {
-		document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+		if (location.pathname !== "/") {
+			// If not on home page, navigate first
+			window.location.href = `/#${id}`;
+		} else {
+			document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+		}
 	};
 
 	return (
@@ -24,7 +33,12 @@ export function Footer() {
 			<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 				{/* Brand */}
 				<div className="space-y-4">
-					<div className="text-2xl font-display font-semibold mb-4">NEXUS</div>
+					<Link
+						to="/"
+						className="text-2xl font-display font-semibold mb-4 block hover:opacity-80 transition-opacity"
+					>
+						AdFuse
+					</Link>
 					<p className="text-sm text-white/60 leading-relaxed">
 						Profesjonalne usługi marketingowe dla nowoczesnych marek. Budujemy
 						kampanie, które przynoszą rezultaty.
@@ -71,10 +85,10 @@ export function Footer() {
 					</h3>
 					<div className="flex flex-col gap-3">
 						<a
-							href="mailto:hello@nexus.marketing"
+							href="mailto:hello@AdFuse.marketing"
 							className="text-sm text-white/60 hover:text-primary-400 transition-colors"
 						>
-							hello@nexus.marketing
+							hello@AdFuse.marketing
 						</a>
 						<a
 							href="tel:+48123456789"
@@ -89,10 +103,13 @@ export function Footer() {
 			{/* Bottom Bar */}
 			<div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
 				<div className="text-sm text-white/40">
-					© {new Date().getFullYear()} NEXUS Marketing. Wszystkie prawa
+					© {new Date().getFullYear()} AdFuse Marketing. Wszystkie prawa
 					zastrzeżone.
 				</div>
 				<div className="flex gap-6 text-sm text-white/40">
+					<Link to="/sitemap" className="hover:text-white/60 transition-colors">
+						Mapa strony
+					</Link>
 					<button
 						type="button"
 						className="hover:text-white/60 transition-colors"

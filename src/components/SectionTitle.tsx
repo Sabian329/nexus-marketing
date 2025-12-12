@@ -17,17 +17,17 @@ export function SectionTitle({
 
 	return (
 		<div className={`text-center mb-20 overflow-visible ${className}`}>
-			<h2 className="relative inline-block text-2xl md:text-4xl lg:text-5xl font-display font-bold mb-6 text-balance px-4 overflow-visible">
+			<h2 className="relative inline-block text-2xl md:text-4xl lg:text-5xl font-display font-bold mb-6 text-balance px-4 pb-8 overflow-visible">
 				{/* Multiple glow layers for depth - reduced intensity */}
 				<span
-					className="absolute inset-0 blur-3xl opacity-15 -mx-8 -my-8"
+					className="absolute inset-0 blur-3xl opacity-15 -mx-8 -my-12"
 					style={{
 						background:
 							"radial-gradient(circle at 50% 50%, rgba(237,115,30,0.4) 0%, rgba(255,255,255,0.2) 40%, transparent 70%)",
 					}}
 				/>
 				<span
-					className="absolute inset-0 blur-2xl opacity-10 -mx-8 -my-8"
+					className="absolute inset-0 blur-2xl opacity-10 -mx-8 -my-12"
 					style={{
 						background:
 							"radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, rgba(237,115,30,0.2) 50%, transparent 80%)",

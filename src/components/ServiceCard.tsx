@@ -1,12 +1,18 @@
+import { Link } from "react-router-dom";
+
 interface ServiceCardProps {
+	id: string;
 	title: string;
 	description: string;
 	index: number;
 }
 
-export function ServiceCard({ title, description, index }: ServiceCardProps) {
+export function ServiceCard({ id, title, description, index }: ServiceCardProps) {
 	return (
-		<div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent backdrop-blur-xl p-8 transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:via-white/8 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-1">
+		<Link
+			to={`/services/${id}`}
+			className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 via-white/3 to-transparent backdrop-blur-xl p-8 transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:via-white/8 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-1 block cursor-pointer"
+		>
 			{/* Gradient overlay on hover */}
 			<div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 via-primary-500/0 to-primary-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
 
@@ -33,6 +39,6 @@ export function ServiceCard({ title, description, index }: ServiceCardProps) {
 
 			{/* Bottom border accent */}
 			<div className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-primary-500 to-transparent transition-all duration-500 group-hover:w-full" />
-		</div>
+		</Link>
 	);
 }

@@ -25,6 +25,7 @@ export function ServicesSection() {
 				{displayedServices.map((service, index) => (
 					<ServiceCard
 						key={service.id}
+						id={service.id}
 						title={service.title}
 						description={service.description}
 						index={index}

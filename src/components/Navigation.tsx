@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "./Button";
@@ -13,6 +14,7 @@ const navItems = [
 export function Navigation() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
+	const location = useLocation();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -24,7 +26,12 @@ export function Navigation() {
 
 	const scrollToSection = (id: string) => {
 		setMobileMenuOpen(false);
-		document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+		if (location.pathname !== "/") {
+			// If not on home page, navigate first
+			window.location.href = `/#${id}`;
+		} else {
+			document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+		}
 	};
 
 	return (
@@ -38,8 +45,11 @@ export function Navigation() {
 			>
 				<div className="section-padding mx-auto max-w-7xl">
 					<div className="flex items-center justify-between h-20">
-						<div className="text-2xl font-display font-semibold flex items-center gap-2">
-							NEXUS
+						<Link
+							to="/"
+							className="text-2xl font-display font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity"
+						>
+							AdFuse
 							<RotatingText
 								texts={["Marketing", "Digital", "Strategy"]}
 								mainClassName="px-1 sm:px-1.5 md:px-2 bg-white text-dark-950 overflow-hidden py-0.5 sm:py-0.5 md:py-1 justify-center rounded-md font-display font-semibold text-sm sm:text-base md:text-lg"
@@ -52,7 +62,7 @@ export function Navigation() {
 								transition={{ type: "spring", damping: 30, stiffness: 400 }}
 								rotationInterval={5000}
 							/>
-						</div>
+						</Link>
 						<div className="hidden md:flex items-center gap-8">
 							{navItems.map((item) => (
 								<button
@@ -93,7 +103,13 @@ export function Navigation() {
 					</Transition.Child>
 					<Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full bg-dark-950 border-l border-white/10 p-6">
 						<div className="flex items-center justify-between mb-12">
-							<div className="text-2xl font-display font-semibold">NEXUS</div>
+							<Link
+								to="/"
+								onClick={() => setMobileMenuOpen(false)}
+								className="text-2xl font-display font-semibold"
+							>
+								AdFuse
+							</Link>
 
 							<button
 								type="button"

@@ -15,7 +15,7 @@ export function ContactSection() {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		// Handle form submission
-		window.location.href = `mailto:hello@nexus.marketing?subject=Kontakt z ${formData.company || "strony"}&body=${encodeURIComponent(`Imię: ${formData.name}\nEmail: ${formData.email}\nFirma: ${formData.company}\n\nWiadomość:\n${formData.message}`)}`;
+		window.location.href = `mailto:hello@AdFuse.marketing?subject=Kontakt z ${formData.company || "strony"}&body=${encodeURIComponent(`Imię: ${formData.name}\nEmail: ${formData.email}\nFirma: ${formData.company}\n\nWiadomość:\n${formData.message}`)}`;
 	};
 
 	const handleChange = (
