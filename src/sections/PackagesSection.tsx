@@ -133,8 +133,12 @@ export function PackagesSection() {
 			<div className="flow-root">
 				<div className="mx-auto max-w-7xl">
 					<div className="relative z-10 mb-16">
-						<SectionTitle subtitle="Wybierz pakiet dopasowany do Twoich potrzeb">
-							Pakiety usług e-marketingu
+						<SectionTitle
+							subtitle="
+							Wybierz pakiet dostosowany do tempa rozwoju Twojej firmy"
+							subtitle2="*Budżet reklamowy (media spend) jest rozliczany osobno."
+						>
+							Pakiety współpracy marketingowej
 						</SectionTitle>
 					</div>
 
@@ -196,7 +200,7 @@ export function PackagesSection() {
 											role="list"
 											className="space-y-3 border-t border-white/10 pt-4 text-white"
 										>
-											{sections[0].features.slice(0, 2).map((feature) => (
+											{sections[0].features.slice(0, 5).map((feature) => (
 												<li key={feature.name} className="flex gap-x-3">
 													<CheckIcon
 														aria-hidden="true"

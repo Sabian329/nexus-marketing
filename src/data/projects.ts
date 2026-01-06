@@ -2,34 +2,34 @@ import type { Project } from "../types";
 
 export const projects: Project[] = [
 	{
-		id: "rebranding",
-		title: "Rebranding globalnej marki",
-		category: "Strategia + Branding",
+		id: "global-brand",
+		title: "Obsługa globalnej marki",
+		category: "Strategia + kampanie + content w jednym procesie",
 		description:
-			"Kompleksowa transformacja wizerunku marki z 20-letnią historią. Nowa tożsamość wizualna, strategia komunikacji i kampania launchowa.",
-		results: "+150% engagement, +80% brand awareness",
+			"Prowadzenie działań marketingowych dla marki z ponad 100 letnim doświadczeniem: plan, kreacje, kampanie płatne, analiza wyników i stała optymalizacja. Zakres: strategia * reklamy * content * analityka",
+		results: "",
 		order: 0,
 		image:
 			"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop&q=80",
 	},
 	{
-		id: "ecommerce-campaign",
-		title: "Kampania e-commerce",
-		category: "Digital Marketing",
+		id: "go-to-market",
+		title: "Go-to-market dla nowej marki",
+		category: "Od zera do pierwszych leadów i sprzedazy",
 		description:
-			"Wielokanałowa kampania dla sklepu online. Integracja social media, Google Ads i email marketingu z wynikami przekraczającymi cele.",
-		results: "+200% konwersji, +120% ROI",
+			"Zbudowanie komunikacji, oferty i kanałów pozyskiwania klientów dla nowopowstającej lokalnej marki. Zakres: pozycjonowanie * messaging * kampanie * lejki sprzedazowe",
+		results: "",
 		order: 1,
 		image:
 			"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&q=80",
 	},
 	{
-		id: "content-strategy",
-		title: "Content strategy",
-		category: "Kreatywność",
+		id: "conversion-website",
+		title: "Strona internetowa pod ruch i sprzedaz",
+		category: "Nowa strona www nastawiona na konwersje",
 		description:
-			"Roczna strategia contentowa z produkcją video, animacji i materiałów graficznych. Budowanie społeczności wokół marki.",
-		results: "+300% followers, +250% reach",
+			"Projekt i wdrozenie strony, która lepiej prezentuje ofertę, ładuje się szybciej i prowadzi uzytkownika do działania. Zakres: UX/UI * wdrozenie * SEO * analityka",
+		results: "",
 		order: 2,
 		image:
 			"https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&q=80",

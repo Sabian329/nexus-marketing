@@ -3,6 +3,12 @@ export interface Service {
 	title: string;
 	description: string;
 	images?: string[];
+	subtitle?: string;
+	intro?: string[];
+	forWho?: string[];
+	whatWeDo?: string[];
+	howWeWork?: string[];
+	whatYouGet?: string[];
 }
 
 export interface Project {

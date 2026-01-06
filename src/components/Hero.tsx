@@ -68,9 +68,9 @@ export function Hero() {
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up-delay-2">
 					<Button
 						onClick={() => scrollToSection("contact")}
-						className="text-sm w-52"
+						className="text-sm "
 					>
-						Rozpocznijmy projekt
+						Umów bezpłatną konsultację
 					</Button>
 					<Button
 						variant="ghost"

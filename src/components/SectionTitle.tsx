@@ -4,11 +4,13 @@ interface SectionTitleProps {
 	children: ReactNode;
 	subtitle?: string;
 	className?: string;
+	subtitle2?: string;
 }
 
 export function SectionTitle({
 	children,
 	subtitle,
+	subtitle2,
 	className = "",
 }: SectionTitleProps) {
 	// Split by spaces and handle line breaks
@@ -67,6 +69,11 @@ export function SectionTitle({
 			{subtitle && (
 				<p className="text-xl text-white/60 max-w-2xl mx-auto text-balance">
 					{subtitle}
+				</p>
+			)}
+			{subtitle2 && (
+				<p className="text-sm text-white/60 max-w-2xl mx-auto text-balance">
+					{subtitle2}
 				</p>
 			)}
 		</div>

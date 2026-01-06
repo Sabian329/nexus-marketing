@@ -18,7 +18,7 @@ export function ServicesSection() {
 			id="services"
 			className="section-padding py-12 md:py-16 mx-auto max-w-7xl"
 		>
-			<SectionTitle subtitle="Kompleksowe usługi marketingowe dla nowoczesnych marek">
+			<SectionTitle subtitle="Strony www i kampanie reklamowe które generują leady i sprzedaż">
 				Co Robimy
 			</SectionTitle>
 			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">

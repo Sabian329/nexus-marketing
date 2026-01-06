@@ -72,11 +72,16 @@ export function ServiceDetail() {
 								Powrót do strony głównej
 							</Link>
 						</div>
-						<div className="text-center mb-12">
-							<h1 className="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
+						<div className="text-center mb-16">
+							<h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight text-balance">
 								{service.title}
 							</h1>
-							<p className="text-xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+							{service.subtitle && (
+								<p className="text-xl md:text-2xl text-primary-400 font-medium mb-6 leading-relaxed max-w-3xl mx-auto">
+									{service.subtitle}
+								</p>
+							)}
+							<p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl mx-auto">
 								{service.description}
 							</p>
 						</div>
@@ -112,43 +117,129 @@ export function ServiceDetail() {
 				{/* Detailed Description Section */}
 				<section className="section-padding pb-16">
 					<div className="mx-auto max-w-4xl">
-						<div className="prose prose-invert max-w-none">
-							<h2 className="text-3xl font-display font-bold mb-6 text-white text-center">
-								Szczegóły usługi
-							</h2>
-							<div className="space-y-6 text-white/80 leading-relaxed">
-								<p>
-									Oferujemy kompleksową obsługę w zakresie{" "}
-									<strong className="text-white">{service.title}</strong>. Nasze
-									rozwiązania są dopasowane do indywidualnych potrzeb klienta i
-									oparte na najnowszych trendach w branży.
-								</p>
-								<p>
-									Współpracujemy z firmami różnej wielkości, od startupów po
-									duże korporacje, zapewniając najwyższą jakość usług i
-									indywidualne podejście do każdego projektu.
-								</p>
-								<h3 className="text-2xl font-display font-semibold mt-8 mb-4 text-white">
-									Co wchodzi w zakres usługi?
-								</h3>
-								<ul className="list-disc list-inside space-y-3 text-white/80 ml-4">
-									<li>Kompleksowa analiza potrzeb i wymagań</li>
-									<li>Indywidualne podejście do każdego projektu</li>
-									<li>Regularne raportowanie i monitoring wyników</li>
-									<li>Wsparcie techniczne i konsultacje</li>
-									<li>Optymalizacja i ciągłe doskonalenie</li>
-								</ul>
-								<h3 className="text-2xl font-display font-semibold mt-8 mb-4 text-white">
-									Dlaczego warto wybrać nas?
-								</h3>
-								<p>
-									Mamy wieloletnie doświadczenie w branży marketingowej i
-									technologicznej. Nasz zespół składa się z ekspertów, którzy
-									rozumieją zarówno aspekty techniczne, jak i marketingowe
-									projektów. Dzięki temu możemy zaoferować kompleksowe
-									rozwiązania, które przynoszą realne rezultaty.
-								</p>
+						{/* Intro */}
+						{service.intro && service.intro.length > 0 && (
+							<div className="space-y-6 mb-16">
+								{service.intro.map((paragraph, index) => (
+									<p
+										key={`intro-${index}`}
+										className="text-lg md:text-xl text-white/90 leading-relaxed"
+									>
+										{paragraph}
+									</p>
+								))}
 							</div>
+						)}
+
+						{/* Sections Grid */}
+						<div className="space-y-16">
+							{/* Dla kogo */}
+							{service.forWho && service.forWho.length > 0 && (
+								<div>
+									<div className="flex items-center gap-3 mb-6">
+										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
+										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
+											Dla kogo?
+										</h2>
+									</div>
+									<ul className="space-y-4">
+										{service.forWho.map((item, index) => (
+											<li
+												key={`forWho-${index}`}
+												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+											>
+												<span className="text-primary-400 mt-1.5 text-xl leading-none">
+													•
+												</span>
+												<span className="text-base md:text-lg text-white/80 leading-relaxed flex-1">
+													{item}
+												</span>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+
+							{/* Co robimy */}
+							{service.whatWeDo && service.whatWeDo.length > 0 && (
+								<div>
+									<div className="flex items-center gap-3 mb-6">
+										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
+										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
+											Co robimy?
+										</h2>
+									</div>
+									<ul className="space-y-4">
+										{service.whatWeDo.map((item, index) => (
+											<li
+												key={`whatWeDo-${index}`}
+												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+											>
+												<span className="text-primary-400 mt-1.5 text-xl leading-none">
+													•
+												</span>
+												<span className="text-base md:text-lg text-white/80 leading-relaxed flex-1">
+													{item}
+												</span>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+
+							{/* Jak pracujemy */}
+							{service.howWeWork && service.howWeWork.length > 0 && (
+								<div>
+									<div className="flex items-center gap-3 mb-6">
+										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
+										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
+											Jak pracujemy?
+										</h2>
+									</div>
+									<ul className="space-y-4">
+										{service.howWeWork.map((item, index) => (
+											<li
+												key={`howWeWork-${index}`}
+												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+											>
+												<span className="text-primary-400 mt-1.5 text-xl leading-none">
+													•
+												</span>
+												<span className="text-base md:text-lg text-white/80 leading-relaxed flex-1">
+													{item}
+												</span>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+
+							{/* Co dostajesz */}
+							{service.whatYouGet && service.whatYouGet.length > 0 && (
+								<div>
+									<div className="flex items-center gap-3 mb-6">
+										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
+										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
+											Co dostajesz?
+										</h2>
+									</div>
+									<ul className="space-y-4">
+										{service.whatYouGet.map((item, index) => (
+											<li
+												key={`whatYouGet-${index}`}
+												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+											>
+												<span className="text-primary-400 mt-1.5 text-xl leading-none">
+													•
+												</span>
+												<span className="text-base md:text-lg text-white/80 leading-relaxed flex-1">
+													{item}
+												</span>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
 						</div>
 					</div>
 				</section>

@@ -18,8 +18,8 @@ export function CompanyDescription() {
 						</span>
 						<div className="h-px w-12 bg-gradient-to-r from-transparent via-primary-500 to-transparent" />
 					</div>
-					<SectionTitle subtitle="Indywiddualne podejście do każdego klienta">
-						Wielkie Projety
+					<SectionTitle subtitle="Strategia + kreacja + technologia w jednym miejscu">
+						Poznajmy się
 					</SectionTitle>
 				</div>
 
@@ -29,9 +29,9 @@ export function CompanyDescription() {
 					<div className="space-y-6">
 						<div className="space-y-4">
 							<p className="text-lg md:text-xl text-white/90 leading-relaxed">
-								Jesteśmy zespołem strategów, kreatywnych i technologów, którzy
-								łączą analizę danych z kreatywnością. Specjalizujemy się w
-								tworzeniu kompleksowych rozwiązań marketingowych, które
+								Jesteśmy zespołem strategów, kreatywnych twórców i technologów,
+								którzy łączą analizę danych z kreatywnością. Specjalizujemy się
+								w tworzeniu kompleksowych rozwiązań marketingowych, które
 								przynoszą realne rezultaty biznesowe.
 							</p>
 							<p className="text-base md:text-lg text-white/75 leading-relaxed">
