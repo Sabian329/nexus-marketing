@@ -22,10 +22,10 @@ export function CalendlyButton() {
 			if (window.Calendly) {
 				window.Calendly.initBadgeWidget({
 					url: "https://calendly.com/adfusegroup/30min",
-					text: "Schedule time with me",
+					text: "Zarezerwuj spotkanie",
 					color: "#f19143",
 					textColor: "#fbfbfb",
-					branding: true,
+					branding: false,
 				});
 			}
 		};
