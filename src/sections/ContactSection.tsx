@@ -26,7 +26,7 @@ export function ContactSection() {
 		setIsSubmitting(true);
 		setResult("");
 
-		const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
+		const accessKey = "553f14fe-0916-4593-8273-f25945333627";
 		if (!accessKey) {
 			setResult(
 				"Błąd konfiguracji formularza. Skontaktuj się z administratorem.",
