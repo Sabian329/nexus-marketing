@@ -45,11 +45,11 @@ export function ServiceDetail() {
 					className=""
 				/>
 			</div>
-			<div className="pt-20 relative z-10">
+			<div className=" relative z-10">
 				{/* Hero Section */}
 				<section className="section-padding py-16 md:py-24">
 					<div className="mx-auto max-w-6xl">
-						<div className="mb-8">
+						<div className="ml-8">
 							<Link
 								to="/"
 								className="inline-flex hover:cursor-pointer items-center gap-2 text-sm text-white/60 hover:text-primary-400 transition-colors mb-8"
@@ -69,7 +69,7 @@ export function ServiceDetail() {
 										d="M15 19l-7-7 7-7"
 									/>
 								</svg>
-								Powrót do strony głównej
+								Powrót
 							</Link>
 						</div>
 						<div className="text-center mb-16">
@@ -137,7 +137,6 @@ export function ServiceDetail() {
 							{service.forWho && service.forWho.length > 0 && (
 								<div>
 									<div className="flex items-center gap-3 mb-6">
-										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
 										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
 											Dla kogo?
 										</h2>
@@ -146,7 +145,7 @@ export function ServiceDetail() {
 										{service.forWho.map((item, index) => (
 											<li
 												key={`forWho-${index}`}
-												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+												className="flex items-start gap-4 pl-4 border-primary-500/30"
 											>
 												<span className="text-primary-400 mt-1.5 text-xl leading-none">
 													•
@@ -164,7 +163,6 @@ export function ServiceDetail() {
 							{service.whatWeDo && service.whatWeDo.length > 0 && (
 								<div>
 									<div className="flex items-center gap-3 mb-6">
-										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
 										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
 											Co robimy?
 										</h2>
@@ -173,7 +171,7 @@ export function ServiceDetail() {
 										{service.whatWeDo.map((item, index) => (
 											<li
 												key={`whatWeDo-${index}`}
-												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+												className="flex items-start gap-4 pl-4  border-primary-500/30"
 											>
 												<span className="text-primary-400 mt-1.5 text-xl leading-none">
 													•
@@ -191,7 +189,6 @@ export function ServiceDetail() {
 							{service.howWeWork && service.howWeWork.length > 0 && (
 								<div>
 									<div className="flex items-center gap-3 mb-6">
-										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
 										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
 											Jak pracujemy?
 										</h2>
@@ -200,7 +197,7 @@ export function ServiceDetail() {
 										{service.howWeWork.map((item, index) => (
 											<li
 												key={`howWeWork-${index}`}
-												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+												className="flex items-start gap-4 pl-4  border-primary-500/30"
 											>
 												<span className="text-primary-400 mt-1.5 text-xl leading-none">
 													•
@@ -218,7 +215,6 @@ export function ServiceDetail() {
 							{service.whatYouGet && service.whatYouGet.length > 0 && (
 								<div>
 									<div className="flex items-center gap-3 mb-6">
-										<div className="h-px w-12 bg-gradient-to-r from-primary-500 to-transparent" />
 										<h2 className="text-2xl md:text-3xl font-display font-bold text-white">
 											Co dostajesz?
 										</h2>
@@ -227,7 +223,7 @@ export function ServiceDetail() {
 										{service.whatYouGet.map((item, index) => (
 											<li
 												key={`whatYouGet-${index}`}
-												className="flex items-start gap-4 pl-4 border-l-2 border-primary-500/30"
+												className="flex items-start gap-4 pl-4 border-primary-500/30"
 											>
 												<span className="text-primary-400 mt-1.5 text-xl leading-none">
 													•

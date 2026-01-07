@@ -1,30 +1,66 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 import ColorBends from "../components/ColorBends";
 import { SectionTitle } from "../components/SectionTitle";
 import { Button } from "../components/Button";
 
+interface FormData {
+	name: string;
+	email: string;
+	company: string;
+	message: string;
+}
+
 export function ContactSection() {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		company: "",
-		message: "",
-	});
+	const [result, setResult] = useState<string>("");
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm<FormData>();
 
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		// Handle form submission
-		window.location.href = `mailto:adfusegroup@gmail.com?subject=Kontakt z ${formData.company || "strony"}&body=${encodeURIComponent(`Imię: ${formData.name}\nEmail: ${formData.email}\nFirma: ${formData.company}\n\nWiadomość:\n${formData.message}`)}`;
-	};
+	const onSubmit = async (data: FormData) => {
+		setIsSubmitting(true);
+		setResult("");
 
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-	) => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
+		const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
+		if (!accessKey) {
+			setResult(
+				"Błąd konfiguracji formularza. Skontaktuj się z administratorem.",
+			);
+			setIsSubmitting(false);
+			return;
+		}
+
+		const formData = new FormData();
+		formData.append("access_key", accessKey);
+		formData.append("name", data.name);
+		formData.append("email", data.email);
+		formData.append("company", data.company || "");
+		formData.append("message", data.message);
+
+		try {
+			const response = await fetch("https://api.web3forms.com/submit", {
+				method: "POST",
+				body: formData,
+			});
+
+			const result = await response.json();
+
+			if (result.success) {
+				setResult("Wiadomość wysłana pomyślnie!");
+				reset();
+			} else {
+				setResult("Wystąpił błąd podczas wysyłania wiadomości.");
+			}
+		} catch {
+			setResult("Wystąpił błąd podczas wysyłania wiadomości.");
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	return (
@@ -55,38 +91,48 @@ export function ContactSection() {
 					<div className="bg-black/60 backdrop-blur-xl p-5 rounded-2xl w-[700px] border border-white/30">
 						{/* Contact Form */}
 						<div>
-							<form onSubmit={handleSubmit} className="space-y-5">
+							<form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
 								<div>
 									<input
 										type="text"
 										id="name"
-										name="name"
-										required
-										value={formData.name}
-										onChange={handleChange}
+										{...register("name", {
+											required: "Imię i nazwisko jest wymagane",
+										})}
 										className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 text-white text-base placeholder-white/40 focus:outline-none focus:border-primary-500 transition-colors"
 										placeholder="Imię i nazwisko *"
 									/>
+									{errors.name && (
+										<p className="text-red-400 text-sm mt-1">
+											{errors.name.message}
+										</p>
+									)}
 								</div>
 								<div>
 									<input
 										type="email"
 										id="email"
-										name="email"
-										required
-										value={formData.email}
-										onChange={handleChange}
+										{...register("email", {
+											required: "Email jest wymagany",
+											pattern: {
+												value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+												message: "Nieprawidłowy adres email",
+											},
+										})}
 										className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 text-white text-base placeholder-white/40 focus:outline-none focus:border-primary-500 transition-colors"
 										placeholder="Email *"
 									/>
+									{errors.email && (
+										<p className="text-red-400 text-sm mt-1">
+											{errors.email.message}
+										</p>
+									)}
 								</div>
 								<div>
 									<input
 										type="text"
 										id="company"
-										name="company"
-										value={formData.company}
-										onChange={handleChange}
+										{...register("company")}
 										className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 text-white text-base placeholder-white/40 focus:outline-none focus:border-primary-500 transition-colors"
 										placeholder="Firma"
 									/>
@@ -94,17 +140,32 @@ export function ContactSection() {
 								<div>
 									<textarea
 										id="message"
-										name="message"
-										required
 										rows={4}
-										value={formData.message}
-										onChange={handleChange}
+										{...register("message", {
+											required: "Wiadomość jest wymagana",
+										})}
 										className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 text-white text-base placeholder-white/40 focus:outline-none focus:border-primary-500 transition-colors resize-none"
 										placeholder="Wiadomość *"
 									/>
+									{errors.message && (
+										<p className="text-red-400 text-sm mt-1">
+											{errors.message.message}
+										</p>
+									)}
 								</div>
-								<Button type="submit" className="mt-8">
-									Wyślij wiadomość
+								{result && (
+									<div
+										className={`p-3 rounded-lg text-sm ${
+											result.includes("pomyślnie")
+												? "bg-green-500/20 text-green-400 border border-green-500/30"
+												: "bg-red-500/20 text-red-400 border border-red-500/30"
+										}`}
+									>
+										{result}
+									</div>
+								)}
+								<Button type="submit" className="mt-8" disabled={isSubmitting}>
+									{isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
 								</Button>
 							</form>
 						</div>

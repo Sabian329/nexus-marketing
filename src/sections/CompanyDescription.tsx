@@ -11,13 +11,6 @@ export function CompanyDescription() {
 				{/* Section Header */}
 
 				<div className="text-center mb-16 md:mb-20">
-					<div className="inline-flex items-center gap-3 mb-6">
-						<div className="h-px w-12 bg-gradient-to-r from-transparent via-primary-500 to-transparent" />
-						<span className="text-xs font-semibold text-primary-400 uppercase tracking-[0.2em]">
-							O nas
-						</span>
-						<div className="h-px w-12 bg-gradient-to-r from-transparent via-primary-500 to-transparent" />
-					</div>
 					<SectionTitle subtitle="Strategia + kreacja + technologia w jednym miejscu">
 						Poznajmy się
 					</SectionTitle>

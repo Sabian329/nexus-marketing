@@ -10,6 +10,13 @@ const tiers = [
 		description: "Wszystko czego potrzebujesz, aby zacząć.",
 		price: "2 500",
 		featured: false,
+		features: [
+			"Social Media Management",
+			"5 publikacji/miesiąc (grafika + copy)",
+			"Plan treści + harmonogram",
+			"Podstawowa analityka + raport miesięczny",
+			"1 konsultacja/miesiąc (30 min)",
+		],
 	},
 	{
 		name: "Standard",
@@ -17,6 +24,13 @@ const tiers = [
 		description: "Większa elastyczność i możliwości.",
 		price: "5 000",
 		featured: true,
+		features: [
+			"Social Media Management",
+			"10 publikacji/miesiąc (grafika + copy)",
+			"Prowadzenie kampanii Meta Ads (obsługa + optymalizacja)",
+			"Landing page (1 szablon/wdrożenie pod kampanie)",
+			"Raport + 2 konsultacje / miesiąc",
+		],
 	},
 	{
 		name: "Pro",
@@ -24,6 +38,13 @@ const tiers = [
 		description: "Pełny pakiet dla rozwijającego się biznesu.",
 		price: "8 500",
 		featured: false,
+		features: [
+			"15 publikacji / miesiąc + formaty video",
+			"Prowadzenie kampanii Meta Ads + Google Ads (obsługa + optymalizacja)",
+			"Optymalizacja konwersji (testy + zmiany LP)",
+			"SEO (optymalizacja)",
+			"3 konsultacje / miesiąc + priorytetowe wsparcie",
+		],
 	},
 ];
 
@@ -33,40 +54,23 @@ const sections = [
 		features: [
 			{
 				name: "Social Media Management",
+				tiers: { Basic: true, Standard: true, Pro: false },
+			},
+			{
+				name: "Liczba publikacji/miesiąc",
+				tiers: {
+					Basic: "5",
+					Standard: "10",
+					Pro: "15",
+				},
+			},
+			{
+				name: "Plan treści + harmonogram",
 				tiers: { Basic: true, Standard: true, Pro: true },
 			},
 			{
-				name: "Liczba postów/miesiąc",
-				tiers: { Basic: "5", Standard: "10", Pro: "15" },
-			},
-			{
-				name: "Planowanie treści",
-				tiers: { Basic: true, Standard: true, Pro: true },
-			},
-			{
-				name: "Grafiki reklamowe",
-				tiers: { Basic: false, Standard: true, Pro: true },
-			},
-		],
-	},
-	{
-		name: "Strona internetowa",
-		features: [
-			{
-				name: "Podstawowa strona",
+				name: "Podstawowa analityka + raport miesięczny",
 				tiers: { Basic: true, Standard: false, Pro: false },
-			},
-			{
-				name: "Optymalizacja strony",
-				tiers: { Basic: false, Standard: true, Pro: true },
-			},
-			{
-				name: "Nowoczesna strona",
-				tiers: { Basic: false, Standard: false, Pro: true },
-			},
-			{
-				name: "Analityka i optymalizacja",
-				tiers: { Basic: false, Standard: false, Pro: true },
 			},
 		],
 	},
@@ -74,45 +78,50 @@ const sections = [
 		name: "Reklamy",
 		features: [
 			{
-				name: "Facebook Ads",
+				name: "Prowadzenie kampanii Meta Ads",
 				tiers: { Basic: false, Standard: true, Pro: true },
 			},
 			{
-				name: "Google Ads",
+				name: "Prowadzenie kampanii Google Ads",
 				tiers: { Basic: false, Standard: false, Pro: true },
 			},
 			{
-				name: "Optymalizacja kampanii",
+				name: "Obsługa + optymalizacja kampanii",
 				tiers: { Basic: false, Standard: true, Pro: true },
 			},
 		],
 	},
 	{
-		name: "Wsparcie",
+		name: "Landing Page & Optymalizacja",
+		features: [
+			{
+				name: "Landing page (1 szablon/wdrożenie pod kampanie)",
+				tiers: { Basic: false, Standard: true, Pro: false },
+			},
+			{
+				name: "Optymalizacja konwersji (testy + zmiany LP)",
+				tiers: { Basic: false, Standard: false, Pro: true },
+			},
+			{
+				name: "SEO (optymalizacja)",
+				tiers: { Basic: false, Standard: false, Pro: true },
+			},
+		],
+	},
+	{
+		name: "Raporty & Wsparcie",
 		features: [
 			{
 				name: "Raport miesięczny",
 				tiers: { Basic: true, Standard: true, Pro: true },
 			},
 			{
-				name: "Wsparcie email",
-				tiers: { Basic: true, Standard: true, Pro: true },
-			},
-			{
-				name: "Wsparcie telefon",
-				tiers: { Basic: false, Standard: true, Pro: true },
-			},
-			{
-				name: "Wsparcie 24/7",
-				tiers: { Basic: false, Standard: false, Pro: true },
-			},
-			{
-				name: "Konsultacje strategiczne",
-				tiers: { Basic: false, Standard: true, Pro: true },
-			},
-			{
-				name: "Priorytetowe wsparcie",
-				tiers: { Basic: false, Standard: false, Pro: true },
+				name: "Konsultacje / miesiąc",
+				tiers: {
+					Basic: "1",
+					Standard: "2",
+					Pro: "3",
+				},
 			},
 		],
 	},
@@ -200,18 +209,18 @@ export function PackagesSection() {
 											role="list"
 											className="space-y-3 border-t border-white/10 pt-4 text-white"
 										>
-											{sections[0].features.slice(0, 5).map((feature) => (
-												<li key={feature.name} className="flex gap-x-3">
+											{tier.features.map((feature, index) => (
+												<li
+													key={`${tier.id}-feature-${index}`}
+													className="flex gap-x-3"
+												>
 													<CheckIcon
 														aria-hidden="true"
-														className={classNames(
-															tier.featured
-																? "text-primary-400"
-																: "text-primary-400",
-															"h-5 w-5 flex-none mt-0.5",
-														)}
+														className="h-5 w-5 flex-none mt-0.5 text-primary-400"
 													/>
-													<span className="text-sm">{feature.name}</span>
+													<span className="text-sm leading-relaxed">
+														{feature}
+													</span>
 												</li>
 											))}
 										</ul>
@@ -240,7 +249,7 @@ export function PackagesSection() {
 
 			{/* Feature Comparison Table */}
 			{showDetails && (
-				<div className="relative bg-dark-950 lg:pt-14 mt-12">
+				<div className="relative bg-dark-950  ">
 					<div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
 						{/* Feature comparison (lg+) */}
 						<section
