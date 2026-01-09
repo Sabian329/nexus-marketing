@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "./Button";
-import RotatingText from "./RotatingText";
+import logoFull from "../assets/logo-full.svg";
 
 const navItems = [
 	{ id: "services", label: "Usługi" },
@@ -47,20 +47,12 @@ export function Navigation() {
 					<div className="flex items-center justify-between h-20">
 						<Link
 							to="/"
-							className="text-2xl font-display font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity"
+							className="flex items-center hover:opacity-80 transition-opacity"
 						>
-							AdFuse
-							<RotatingText
-								texts={["Marketing", "Digital", "Strategy"]}
-								mainClassName="px-1 sm:px-1.5 md:px-2 bg-white text-dark-950 overflow-hidden py-0.5 sm:py-0.5 md:py-1 justify-center rounded-md font-display font-semibold text-sm sm:text-base md:text-lg"
-								staggerFrom={"last"}
-								initial={{ y: "100%" }}
-								animate={{ y: 0 }}
-								exit={{ y: "-120%" }}
-								staggerDuration={0.025}
-								splitLevelClassName="overflow-hidden pb-0.5 sm:pb-0.5 md:pb-0.5"
-								transition={{ type: "spring", damping: 30, stiffness: 400 }}
-								rotationInterval={5000}
+							<img
+								src={logoFull}
+								alt="AdFuse Marketing"
+								className="h-8 md:h-10  w-auto"
 							/>
 						</Link>
 						<div className="hidden md:flex items-center gap-8">
@@ -106,9 +98,13 @@ export function Navigation() {
 							<Link
 								to="/"
 								onClick={() => setMobileMenuOpen(false)}
-								className="text-2xl font-display font-semibold"
+								className="flex items-center"
 							>
-								AdFuse
+								<img
+									src={logoFull}
+									alt="AdFuse Marketing"
+									className="h-8 w-auto"
+								/>
 							</Link>
 
 							<button

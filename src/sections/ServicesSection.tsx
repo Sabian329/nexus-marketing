@@ -16,29 +16,33 @@ export function ServicesSection() {
 	return (
 		<section
 			id="services"
-			className="section-padding py-12 md:py-16 mx-auto max-w-7xl"
+			className="relative section-padding py-12 md:py-16 mx-auto max-w-7xl"
 		>
-			<SectionTitle subtitle="Strony www i kampanie reklamowe które generują leady i sprzedaż">
+			{/* Background blur effect */}
+			<div className="absolute inset-0 bg-dark-950/30 backdrop-blur-[2px] pointer-events-none" />
+			<div className="relative z-10">
+				<SectionTitle subtitle="Strony www i kampanie reklamowe które generują leady i sprzedaż">
 				Co Robimy
 			</SectionTitle>
-			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
-				{displayedServices.map((service, index) => (
-					<ServiceCard
-						key={service.id}
-						id={service.id}
-						title={service.title}
-						description={service.description}
-						index={index}
-					/>
-				))}
-			</div>
-			{hasMore && (
-				<div className="flex justify-center mt-8">
-					<Button variant="ghost" onClick={() => setShowAll(!showAll)}>
-						{showAll ? "Pokaż mniej" : "Pokaż więcej"}
-					</Button>
+				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
+					{displayedServices.map((service, index) => (
+						<ServiceCard
+							key={service.id}
+							id={service.id}
+							title={service.title}
+							description={service.description}
+							index={index}
+						/>
+					))}
 				</div>
-			)}
+				{hasMore && (
+					<div className="flex justify-center mt-8">
+						<Button variant="ghost" onClick={() => setShowAll(!showAll)}>
+							{showAll ? "Pokaż mniej" : "Pokaż więcej"}
+						</Button>
+					</div>
+				)}
+			</div>
 		</section>
 	);
 }

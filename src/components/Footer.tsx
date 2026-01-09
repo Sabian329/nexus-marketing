@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import logoIcon from "../assets/logo-icon.svg";
 
 const footerLinks = [
 	{ id: "services", label: "Usługi" },
@@ -35,9 +36,13 @@ export function Footer() {
 				<div className="space-y-4">
 					<Link
 						to="/"
-						className="text-2xl font-display font-semibold mb-4 block hover:opacity-80 transition-opacity"
+						className="flex items-center mb-4 hover:opacity-80 transition-opacity"
 					>
-						AdFuse
+						<img
+							src={logoIcon}
+							alt="AdFuse"
+							className="h-10 w-auto opacity-60"
+						/>
 					</Link>
 					<p className="text-sm text-white/60 leading-relaxed">
 						Profesjonalne usługi marketingowe dla nowoczesnych marek. Budujemy

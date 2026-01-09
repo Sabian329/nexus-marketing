@@ -1,7 +1,5 @@
 import { Button } from "./Button";
 import ColorBends from "./ColorBends";
-import GlassSurface from "./GlassSurface";
-import StarBorder from "./StarBorder";
 
 export function Hero() {
 	const scrollToSection = (id: string) => {
@@ -13,8 +11,8 @@ export function Hero() {
 
 	return (
 		<section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-			{/* Base gradient */}
-			<div className="absolute inset-0 bg-gradient-to-b from-dark-900/50 to-dark-950" />
+			{/* Base gradient with blur */}
+			<div className="absolute inset-0 bg-gradient-to-b from-dark-900/50 to-dark-950 backdrop-blur-sm" />
 
 			{/* ColorBends background */}
 			<ColorBends

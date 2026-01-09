@@ -5,9 +5,11 @@ export function CompanyDescription() {
 	return (
 		<section
 			id="about"
-			className="section-padding py-12 md:py-16 mx-auto max-w-7xl"
+			className="relative section-padding py-12 md:py-16 mx-auto max-w-7xl"
 		>
-			<div className="max-w-7xl mx-auto">
+			{/* Background blur effect */}
+			<div className="absolute inset-0 bg-dark-950/30 backdrop-blur-[2px] pointer-events-none" />
+			<div className="relative z-10 max-w-7xl mx-auto">
 				{/* Section Header */}
 
 				<div className="text-center mb-16 md:mb-20">
