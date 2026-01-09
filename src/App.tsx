@@ -13,7 +13,6 @@ import { ServiceDetail } from "./pages/ServiceDetail";
 import { SitemapPage } from "./pages/SitemapPage";
 import { CalendlyButton } from "./components/CalendlyButton";
 
-/* eslint-disable react-hooks/exhaustive-deps */
 function ScrollToTop() {
 	const { pathname } = useLocation();
 
@@ -23,7 +22,6 @@ function ScrollToTop() {
 
 	return null;
 }
-/* eslint-enable react-hooks/exhaustive-deps */
 
 function HomePage() {
 	const location = useLocation();
