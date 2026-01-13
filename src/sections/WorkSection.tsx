@@ -9,7 +9,7 @@ export function WorkSection() {
 			id="work"
 			className="relative section-padding py-12 md:py-16 mx-auto max-w-7xl"
 		>
-			<div className="absolute w-full h-full">
+			<div className="hidden lg:block absolute w-full h-full">
 				<Particles
 					particleColors={["#ffffff", "#ffffff"]}
 					particleCount={500}

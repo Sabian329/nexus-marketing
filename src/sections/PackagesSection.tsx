@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { CheckIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import { SectionTitle } from "../components/SectionTitle";
 import { Button } from "../components/Button";
@@ -133,6 +134,15 @@ function classNames(...classes: (string | boolean | undefined)[]) {
 
 export function PackagesSection() {
 	const [showDetails, setShowDetails] = useState(false);
+	const location = useLocation();
+
+	const scrollToSection = (id: string) => {
+		if (location.pathname !== "/") {
+			window.location.href = `/#${id}`;
+		} else {
+			document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+		}
+	};
 
 	return (
 		<section
@@ -201,6 +211,7 @@ export function PackagesSection() {
 									<Button
 										variant={tier.featured ? "primary" : "ghost"}
 										className="w-full mb-6"
+										onClick={() => scrollToSection("contact")}
 									>
 										Wybierz pakiet
 									</Button>
