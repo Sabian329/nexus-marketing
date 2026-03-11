@@ -11,6 +11,7 @@ import { Hero } from "./components/Hero";
 import { Footer } from "./components/Footer";
 import { ServiceDetail } from "./pages/ServiceDetail";
 import { SitemapPage } from "./pages/SitemapPage";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { CalendlyButton } from "./components/CalendlyButton";
 
 function ScrollToTop() {
@@ -65,6 +66,7 @@ function App() {
 				/>
 				<Route path="/services/:serviceName" element={<ServiceDetail />} />
 				<Route path="/sitemap" element={<SitemapPage />} />
+				<Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
 			</Routes>
 		</>
 	);

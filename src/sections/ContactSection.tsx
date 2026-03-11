@@ -10,6 +10,7 @@ interface FormData {
 	email: string;
 	company: string;
 	message: string;
+	acceptPrivacy: boolean;
 }
 
 export function ContactSection() {
@@ -153,6 +154,37 @@ export function ContactSection() {
 										</p>
 									)}
 								</div>
+								<div className="flex items-start gap-3">
+									<input
+										type="checkbox"
+										id="acceptPrivacy"
+										{...register("acceptPrivacy", {
+											required:
+												"Musisz zaakceptować politykę prywatności, aby wysłać formularz.",
+										})}
+										className="mt-1 h-4 w-4 rounded border-white/40 bg-transparent text-primary-500 focus:ring-primary-500"
+									/>
+									<label
+										htmlFor="acceptPrivacy"
+										className="text-sm text-white/70 leading-relaxed"
+									>
+										Akceptuję{" "}
+										<a
+											href="/privacy-policy"
+											target="_blank"
+											rel="noreferrer"
+											className="text-primary-400 hover:text-primary-300 underline underline-offset-2"
+										>
+											politykę prywatności
+										</a>
+										{" "}serwisu AdFuse.
+									</label>
+								</div>
+								{errors.acceptPrivacy && (
+									<p className="text-red-400 text-sm -mt-3">
+										{errors.acceptPrivacy.message}
+									</p>
+								)}
 								{result && (
 									<div
 										className={`p-3 rounded-lg text-sm ${

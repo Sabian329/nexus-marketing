@@ -115,18 +115,12 @@ export function Footer() {
 					<Link to="/sitemap" className="hover:text-white/60 transition-colors">
 						Mapa strony
 					</Link>
-					<button
-						type="button"
+					<Link
+						to="/privacy-policy"
 						className="hover:text-white/60 transition-colors"
 					>
 						Polityka prywatności
-					</button>
-					<button
-						type="button"
-						className="hover:text-white/60 transition-colors"
-					>
-						Regulamin
-					</button>
+					</Link>
 				</div>
 			</div>
 		</footer>

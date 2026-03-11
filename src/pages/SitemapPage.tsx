@@ -69,6 +69,15 @@ export function SitemapPage() {
 											Kontakt
 										</Link>
 									</li>
+									<li>
+										<Link
+											to="/privacy-policy"
+											className="text-white/80 hover:text-primary-400 transition-colors flex items-center gap-2 group"
+										>
+											<span className="w-2 h-2 rounded-full bg-primary-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+											Polityka prywatności
+										</Link>
+									</li>
 								</ul>
 							</div>
 
